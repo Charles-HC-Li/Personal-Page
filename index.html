@@ -20,11 +20,18 @@
     <style>
     body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     .w3-row-padding img {margin-bottom: 12px}
-    .bgimg {
+   .bgimg {
+      display: flex;
+  	justify-content: center; 
+ 	 align-items: center;
       background-position: center;
       background-repeat: no-repeat;
       background-image: url('images/bg.jpg');
+  	background-size: auto 100%;
+ 	 background-origin: content-box;
+  	background-clip: content-box;
       min-height: 80%;
+      padding-top: 10%;
     }
     .image-container {
       max-height: 300px; 
@@ -40,7 +47,7 @@
 
 <!-- Sidebar with image -->
 <nav class="w3-sidebar w3-hide-medium w3-hide-small" style="width:38.2%">
-  <div class="bgimg"></div>
+  <div class="bgimg" align="middle"></div>
 	<p align="center"> Haichang(Charles) Li <br>
         Junior @Purdue University<br>
         li4560[at]purdue[dot]edu</p>
