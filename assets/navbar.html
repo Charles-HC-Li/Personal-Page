@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* 样式化导航栏 */
+        .navbar {
+            background-color: white; /* 设置背景颜色为纯白 */
+            padding: 10px; /* 顶部和底部内边距 */
+            display: flex; /* 使用弹性盒子布局 */
+            justify-content: space-between; /* 在容器内左右对齐 */
+            align-items: center; /* 在容器内垂直居中对齐 */
+        }
+
+        .navbar a {
+            color: black; /* 链接文字颜色 */
+            text-decoration: none; /* 去除链接下划线 */
+            margin: 0 10px; /* 左右外边距，用来分割栏目 */
+        }
+
+        /* 在小屏幕上，名字（Haichang Charles Li）和栏目分成两行 */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column; /* 垂直布局 */
+                text-align: center; /* 文字居中 */
+            }
+            .navbar a {
+                margin: 5px 0; /* 上下外边距，用来分割栏目 */
+            }
+        }
+
+        /* 在大屏幕上，限制内容的左右边界为屏幕的0.618，同时检查名字和栏目是否需要换行 */
+        @media (min-width: 1200px) {
+            .container {
+                width: 61.8%; /* 设置内容容器的宽度为屏幕宽度的61.8% */
+                margin: 0 auto; /* 在左右两侧居中对齐容器 */
+            }
+            .name,
+            .menu {
+                white-space: nowrap; /* 防止内容换行 */
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="navbar">
+        <div class="name">
+            <a href="#"><b>Haichang Charles Li 李海畅</b></a>
+        </div>
+        <div class="menu">
+            <a href="#">about</a> /
+            <a href="#">past</a> / 
+            <a href="#">thought</a> / 
+            <a href="#">misc</a> / 
+            <a href="#">cv</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
