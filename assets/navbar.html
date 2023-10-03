@@ -30,10 +30,6 @@
 
         /* 在大屏幕上，限制内容的左右边界为屏幕的0.618，同时检查名字和栏目是否需要换行 */
         @media (min-width: 1200px) {
-            .container {
-                width: 61.8%; /* 设置内容容器的宽度为屏幕宽度的61.8% */
-                margin: 0 auto; /* 在左右两侧居中对齐容器 */
-            }
             .name,
             .menu {
                 white-space: nowrap; /* 防止内容换行 */
@@ -45,18 +41,17 @@
 </head>
 <body>
 
-<div class="container">
-    <div class="navbar">
-        <div class="name">
-            <a href="#"><b>Haichang Charles Li 李海畅</b></a>
-        </div>
-        <div class="menu">
-            <a href="#about">about</a> /
-            <a href="#past">past</a> / 
-            <a href="../thoughts.html">thoughts</a> / 
-            <a href="../misc.html">misc</a> / 
-            <a href="../materials/Haichang Li-Resume.pdf">cv</a>
-        </div>
+<div class="navbar">
+    <div class="name">
+        <a href="#"><b>Haichang Charles Li 李海畅</b></a>
+    </div>
+    <div class="menu">
+        <a href="#about">about</a> /
+        <a href="#past">past</a> / 
+        <a href="../thoughts.html">thoughts</a> / 
+        <a href="../misc.html">misc</a> / 
+        <!-- 直接链接到 CV 文件，点击后在新标签页中打开 -->
+        <a href="../materials/Haichang Li-Resume.pdf" target="_blank">cv</a>
     </div>
 </div>
 
