@@ -1,16 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="assets/navbar.css">
+    <style>
+        /* 样式化导航栏 */
+        .navbar {
+            background-color: white; /* 设置背景颜色为纯白 */
+            padding: 10px; /* 顶部和底部内边距 */
+            display: flex; /* 使用弹性盒子布局 */
+            justify-content: space-between; /* 在容器内左右对齐 */
+            align-items: center; /* 在容器内垂直居中对齐 */
+        }
+
+        .navbar a {
+            color: black; /* 链接文字颜色 */
+            text-decoration: none; /* 去除链接下划线 */
+            margin: 0 10px; /* 左右外边距，用来分割栏目 */
+        }
+
+        /* 在小屏幕上，名字（Haichang Charles Li）和栏目分成两行 */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column; /* 垂直布局 */
+                text-align: center; /* 文字居中 */
+            }
+            .navbar a {
+                margin: 5px 0; /* 上下外边距，用来分割栏目 */
+            }
+        }
+
+        /* 在大屏幕上，限制内容的左右边界为屏幕的0.618，同时检查名字和栏目是否需要换行 */
+        @media (min-width: 1200px) {
+            .name,
+            .menu {
+                white-space: nowrap; /* 防止内容换行 */
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Include the navbar from the assets folder -->
-    <iframe src="assets/navbar.html" frameborder="0" scrolling="no" width="100%" height="50"></iframe>
-
-    <!-- Your page content goes here -->
-    <h1>Welcome to My Website</h1>
-    <p>This is the content of your index.html page.</p>
-
+<div class="navbar">
+    <div class="name">
+        <a href="#"><b>Haichang Charles Li 李海畅</b></a>
+    </div>
+    <div class="menu">
+        <a href="#about">about</a> /
+        <a href="#past">past</a> / 
+        <a href="../thoughts.html">thoughts</a> / 
+        <a href="../misc.html">misc</a> / 
+        <!-- 直接链接到 CV 文件，点击后在新标签页中打开 -->
+        <a href="../materials/Haichang Li-Resume.pdf" target="_blank">cv</a>
+    </div>
+</div>
+Welcome 2 my website. It will be completed by October 8.
 </body>
 </html>
