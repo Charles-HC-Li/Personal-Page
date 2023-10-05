@@ -1,18 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="assets/navbar.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        main {
+            max-width: 61.2em; 
+            margin: 0 auto; 
+            padding: 1em; 
+        }
+
+        .navbar {
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em 0;
+            max-width: 61.2em;
+            margin: 0 auto;
+            box-shadow: none;
+            border: none;
+            transition: max-width 0.5s ease;
+        }
+
+        .left-section {
+            font-weight: bold;
+            white-space: nowrap;
+            max-width: 100%;
+            margin-right: 0.1em;
+            font-size: 1.2em;
+        }
+
+        .right-section ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .right-section li {
+            margin-right: 0.75em;
+            font-size: 1em;
+        }
+
+        .right-section li:last-child {
+            margin-right: 0;
+        }
+
+        .right-section a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .slash {
+            margin: 0 0.2em;
+        }
+
+
+        @media screen and (max-width: 62.5em) {
+            .navbar {
+                padding: 1em 5%;
+                max-width: 62.5em;
+            }
+            main {
+                max-width: 62.5em; 
+                padding: 1em 5%; 
+            }
+            .left-section {
+                white-space: initial;
+                text-overflow: initial;
+                font-size: 1em;
+            }
+            .left-section::after {
+                content: none;
+            }
+        }
+
+        @media screen and (max-width: 24em) {
+            .navbar {
+                min-width: 24em;
+            }
+            main {
+                min-width: 24em;
+            }
+        }
+    </style>
+    <title>Haichang Li 李海畅</title>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="left-section">
+            <strong>Haichang Li 李海畅</strong>
+        </div>
+        <div class="right-section">
+            <ul>
+                <li><a href="#about">about</a></li>
+                <li class="slash">/</li>
+                <li><a href="#past">past</a></li>
+                <li class="slash">/</li>
+                <li><a href="../thoughts.html">thoughts</a></li>
+                <li class="slash">/</li>
+                <li><a href="../misc.html">misc</a></li>
+                <li class="slash">/</li>
+                <li><a href="../materials/Haichang Li-Resume.pdf">cv</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+        window.addEventListener("resize", function () {
+            var leftSection = document.querySelector(".left-section");
+            var fontSizeInPixels = parseFloat(getComputedStyle(document.body).fontSize);
+            if (window.innerWidth / fontSizeInPixels < 30) {
+                leftSection.innerHTML = "<strong>Haichang</strong>";
+            } else if (window.innerWidth / fontSizeInPixels < 34) {
+                leftSection.innerHTML = "<strong>Haichang Li</strong>";
+            } else {
+                leftSection.innerHTML = "<strong>Haichang Li 李海畅</strong>";
+            }
+        });
+    </script>
 
-<div class="container">
-    <!-- Include the navbar from the assets folder -->
-    <iframe src="assets/navbar.html" frameborder="0" scrolling="no" width="100%" height="50"></iframe>
-
-    <!-- Your page content goes here -->
+<main>
+    <!-- 正文内容放在这里 -->
     <h1>Welcome to My Website</h1>
-    <p>This is the content of your index.html page.</p>
-</div>
+    <p>This is the main content of the website.</p>
+</main>
 
 </body>
 </html>
