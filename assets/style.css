@@ -1,7 +1,29 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Open Sans";
+}
+
+img.img_responsive{width:23em;height:auto;display:block}
+div.img {
+    display: inline; 
+    text-align: left; 
+    margin: 0 auto; 
+    margin-right: 3em;
+    vertical-align: middle; 
+    max-width: 60em; 
+    float: left;
+}
+
+div.info {
+    display: inline;
+    text-align: left;
+    vertical-align: middle;
+    float:right;
+}
+
+.clear {
+    clear: both;
 }
 
 main {
@@ -74,13 +96,19 @@ main {
     .left-section::after {
         content: none;
     }
+    div.info{padding-right:calc(40% - 22em)}
 }
 
-@media screen and (max-width: 24em) {
+@media screen and (max-width: 30em) {
     .navbar {
         min-width: 24em;
     }
     main {
         min-width: 24em;
+    }
+    div.img, div.info{
+        float: none;
+        margin: 0 auto;
+        text-align: center;
     }
 }
