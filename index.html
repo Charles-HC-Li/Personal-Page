@@ -1,59 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes">
     <style>
-        /* 样式化导航栏 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        main {
+            max-width: 61.2em; 
+            margin: 0 auto; 
+            padding: 1em; 
+        }
+
         .navbar {
-            background-color: white; /* 设置背景颜色为纯白 */
-            padding: 10px; /* 顶部和底部内边距 */
-            display: flex; /* 使用弹性盒子布局 */
-            justify-content: space-between; /* 在容器内左右对齐 */
-            align-items: center; /* 在容器内垂直居中对齐 */
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em 0;
+            max-width: 61.2em;
+            margin: 0 auto;
+            box-shadow: none;
+            border: none;
+            transition: max-width 0.5s ease;
         }
 
-        .navbar a {
-            color: black; /* 链接文字颜色 */
-            text-decoration: none; /* 去除链接下划线 */
-            margin: 0 10px; /* 左右外边距，用来分割栏目 */
+        .left-section {
+            font-weight: bold;
+            white-space: nowrap;
+            max-width: 100%;
+            margin-right: 0.1em;
+            font-size: 1.2em;
         }
 
-        /* 在小屏幕上，名字（Haichang Charles Li）和栏目分成两行 */
-        @media (max-width: 768px) {
+        .right-section ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .right-section li {
+            margin-right: 0.75em;
+            font-size: 1em;
+        }
+
+        .right-section li:last-child {
+            margin-right: 0;
+        }
+
+        .right-section a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .slash {
+            margin: 0 0.2em;
+        }
+
+
+        @media screen and (max-width: 62.5em) {
             .navbar {
-                flex-direction: column; /* 垂直布局 */
-                text-align: center; /* 文字居中 */
+                padding: 1em 5%;
+                max-width: 62.5em;
             }
-            .navbar a {
-                margin: 5px 0; /* 上下外边距，用来分割栏目 */
+            main {
+                max-width: 62.5em; 
+                padding: 1em 5%; 
+            }
+            .left-section {
+                white-space: initial;
+                text-overflow: initial;
+                font-size: 1em;
+            }
+            .left-section::after {
+                content: none;
             }
         }
 
-        /* 在大屏幕上，限制内容的左右边界为屏幕的0.618，同时检查名字和栏目是否需要换行 */
-        @media (min-width: 1200px) {
-            .name,
-            .menu {
-                white-space: nowrap; /* 防止内容换行 */
-                overflow: hidden;
-                text-overflow: ellipsis;
+        @media screen and (max-width: 24em) {
+            .navbar {
+                min-width: 24em;
+            }
+            main {
+                min-width: 24em;
             }
         }
     </style>
+    <title>Haichang Li 李海畅</title>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="left-section">
+            <strong>Haichang Li 李海畅</strong>
+        </div>
+        <div class="right-section">
+            <ul>
+                <li><a href="#about">about</a></li>
+                <li class="slash">/</li>
+                <li><a href="#past">past</a></li>
+                <li class="slash">/</li>
+                <li><a href="../thoughts.html">thoughts</a></li>
+                <li class="slash">/</li>
+                <li><a href="../misc.html">misc</a></li>
+                <li class="slash">/</li>
+                <li><a href="../materials/Haichang Li-Resume.pdf">cv</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+        window.addEventListener("resize", function () {
+            var leftSection = document.querySelector(".left-section");
+            var fontSizeInPixels = parseFloat(getComputedStyle(document.body).fontSize);
+            if (window.innerWidth / fontSizeInPixels < 30) {
+                leftSection.innerHTML = "<strong>Haichang</strong>";
+            } else if (window.innerWidth / fontSizeInPixels < 34) {
+                leftSection.innerHTML = "<strong>Haichang Li</strong>";
+            } else {
+                leftSection.innerHTML = "<strong>Haichang Li 李海畅</strong>";
+            }
+        });
+    </script>
 
-<div class="navbar">
-    <div class="name">
-        <a href="#"><b>Haichang Charles Li 李海畅</b></a>
-    </div>
-    <div class="menu">
-        <a href="#about">about</a> /
-        <a href="#past">past</a> / 
-        <a href="../thoughts.html">thoughts</a> / 
-        <a href="../misc.html">misc</a> / 
-        <!-- 直接链接到 CV 文件，点击后在新标签页中打开 -->
-        <a href="../materials/Haichang Li-Resume.pdf" target="_blank">cv</a>
-    </div>
-</div>
-Welcome 2 my website. It will be completed by October 8.
+<main>
+    <!-- 正文内容放在这里 -->
+    <h1>Welcome to My Website</h1>
+    <p>This is the main content of the website.</p>
+</main>
+
 </body>
 </html>
