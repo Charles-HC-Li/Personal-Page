@@ -1,96 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        main {
-            max-width: 61.2em; 
-            margin: 0 auto; 
-            padding: 1em; 
-        }
-
-        .navbar {
-            background-color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1em 0;
-            max-width: 61.2em;
-            margin: 0 auto;
-            box-shadow: none;
-            border: none;
-            transition: max-width 0.5s ease;
-        }
-
-        .left-section {
-            font-weight: bold;
-            white-space: nowrap;
-            max-width: 100%;
-            margin-right: 0.1em;
-            font-size: 1.2em;
-        }
-
-        .right-section ul {
-            list-style-type: none;
-            padding: 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .right-section li {
-            margin-right: 0.75em;
-            font-size: 1em;
-        }
-
-        .right-section li:last-child {
-            margin-right: 0;
-        }
-
-        .right-section a {
-            text-decoration: none;
-            color: black;
-        }
-
-        .slash {
-            margin: 0 0.2em;
-        }
-
-
-        @media screen and (max-width: 62.5em) {
-            .navbar {
-                padding: 1em 5%;
-                max-width: 62.5em;
-            }
-            main {
-                max-width: 62.5em; 
-                padding: 1em 5%; 
-            }
-            .left-section {
-                white-space: initial;
-                text-overflow: initial;
-                font-size: 1em;
-            }
-            .left-section::after {
-                content: none;
-            }
-        }
-
-        @media screen and (max-width: 24em) {
-            .navbar {
-                min-width: 24em;
-            }
-            main {
-                min-width: 24em;
-            }
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
     <title>Haichang Li 李海畅</title>
 </head>
 <body>
@@ -104,33 +18,39 @@
                 <li class="slash">/</li>
                 <li><a href="#past">past</a></li>
                 <li class="slash">/</li>
-                <li><a href="../thoughts.html">thoughts</a></li>
+                <li><a href="thoughts.html">thoughts</a></li>
                 <li class="slash">/</li>
-                <li><a href="../misc.html">misc</a></li>
+                <li><a href="misc.html">misc</a></li>
                 <li class="slash">/</li>
-                <li><a href="../materials/Haichang Li-Resume.pdf">cv</a></li>
+                <li><a href="materials/Haichang Li-Resume.pdf">cv</a></li>
             </ul>
         </div>
     </nav>
-    <script>
-        window.addEventListener("resize", function () {
-            var leftSection = document.querySelector(".left-section");
-            var fontSizeInPixels = parseFloat(getComputedStyle(document.body).fontSize);
-            if (window.innerWidth / fontSizeInPixels < 30) {
-                leftSection.innerHTML = "<strong>Haichang</strong>";
-            } else if (window.innerWidth / fontSizeInPixels < 34) {
-                leftSection.innerHTML = "<strong>Haichang Li</strong>";
-            } else {
-                leftSection.innerHTML = "<strong>Haichang Li 李海畅</strong>";
-            }
-        });
-    </script>
 
-<main>
-    <!-- 正文内容放在这里 -->
-    <h1>Welcome to My Website</h1>
-    <p>This is the main content of the website.</p>
-</main>
+    <main>
 
+        <!-- You can add more sections for other content as needed -->
+        <div id="About">
+        我是李海畅，很厉害的人。
+
+        <p>	I am Haichang(Charles) Li(李海畅), currently a second-year Undergraduate student at <a href="https://www.purdue.edu/">Purdue University</a>, majoring in <a href="https://polytechnic.purdue.edu/degrees/computer-and-information-technology">Computer and IT</a>, and minoring in <a href="https://www.cla.purdue.edu/communication/">Communication</a>. 
+            Before coming to Purdue University, I dropped out of the <a href="https://www.liverpool.ac.uk/courses/xjtlu/electrical-engineering-beng/electrical-and-electronic-engineering-beng-hons">EEE</a> joint program of <a href="https://www.xjtlu.edu.cn/en/study/departments/school-of-advanced-technology/electrical-and-electronic-engineering">XJTLU</a> and <a href="https://www.liverpool.ac.uk/electrical-engineering-and-electronics/">UoL</a> for personal planning, 
+            so I also have learned some hardware knowledge in the Year-1 @XJTLU.</p>
+                My research interests are at the intersection of HCI, music processing, NLP, social science, and embodied AI, and I hope to explore how to design trustworthy AI and how to make AI more human-like in its perception of the world, and Human-AI Collaboration in this process. For now, my interest is in AI-assisted technology, and I hope to use AI to help people who are psychologically or physically disadvantaged to make the world fair. <br>More broadly, I hope to explore machine-perceived interactions (multimodal learning) and their impact on people and society (HCI&AI4Social Science).</p>
+      
+        
+
+        <p><strong>Multimodal Deep Learning</strong></p>
+<p>- Can we enable machines to cross-connect various modalities to enhance their comprehensive and realistic perception of the external world, particularly through aligning and generating various modalities?</p>
+
+<p><strong>LLM & NLP with AGI</strong></p>
+<p>- Facing LLMs, I'm amazed by their ability to interact with humans using language, resembling thought. Humans rely on brainwaves to receive and unify multimodal information. Can LLMs serve as the "brain" of machines, using text as the medium to unify various modalities in an “External-Prompt-LLM-Code-Agent” pattern? Is this approach feasible and stable?</p>
+
+<p><strong>HCI & AI for Social Science</strong></p>
+<p>- What are the impacts of LLMs on humans and society? Can we improve their interpretability and trustworthiness by studying their effects on humans and society? For instance, there's a theory in communication called "embodied communication." Can this perspective guide the communication between Machines and Humans & World?</p>
+</div>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
