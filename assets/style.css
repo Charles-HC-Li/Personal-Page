@@ -4,6 +4,11 @@ body {
     font-family: "Open Sans";
 }
 
+.news-container {
+    height: 11em; 
+    overflow-y: auto; 
+}
+
 img.img_responsive{width:23em;height:auto;display:block}
 div.img {
     display: inline; 
@@ -77,6 +82,39 @@ main {
 .slash {
     margin: 0 0.2em;
 }
+
+.custom-experience-container {
+    flex-wrap: nowrap;
+    display: flex;
+    height: auto;
+    padding: 1em;
+    background-color: #fff;
+    transition: box-shadow 0.3s; 
+    overflow-y: auto;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.custom-experience-container:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+}
+
+.custom-image {
+    width: 18em;
+    flex-shrink: 0;
+}
+
+.custom-image img {
+    max-width: 100%;
+    height: auto;
+    margin-top: auto; 
+    margin-bottom: auto;
+}
+
+.custom-content {
+    margin-left: 1em;
+}
+
 
 
 @media screen and (max-width: 62.5em) {
