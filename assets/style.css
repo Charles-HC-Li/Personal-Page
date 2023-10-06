@@ -149,4 +149,13 @@ main {
         margin: 0 auto;
         text-align: center;
     }
+        .custom-image {
+        width: auto; /* Allow image to take its natural width */
+        margin: 0 auto; /* Center the image */
+    }
+    
+    .custom-content {
+        margin-left: 0; /* Reset the margin to align with the image */
+        text-align: center; /* Center the content */
+    }
 }
