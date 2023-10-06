@@ -1,0 +1,504 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+html {
+	font-size: 19px;
+}
+
+html, body {
+	margin: auto;
+	background: #fefefe;
+	-webkit-font-smoothing: antialiased;
+}
+body {
+	font-family: "Vollkorn", Palatino, Times;
+	color: #333;
+	line-height: 1.4;
+	text-align: justify;
+}
+
+#write {
+	max-width: 960px;
+	margin: 0 auto;
+	margin-bottom: 2em;
+	line-height: 1.53;
+	padding-top: 40px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1100px;
+	}
+}
+
+@media print {
+	html {
+		font-size: 13px;
+	}
+}
+
+/* Typography
+-------------------------------------------------------- */
+
+#write>h1:first-child,
+h1 {
+	margin-top: 1.6em;
+	font-weight: normal;
+}
+
+h1 {
+	font-size:3em;
+}
+
+h2 {
+	margin-top:2em;
+	font-weight: normal;
+}
+
+h3 {
+	font-weight: normal;
+	font-style: italic;
+	margin-top: 3em;
+}
+
+h1, 
+h2, 
+h3{
+	text-align: center;
+}
+
+h2:after{
+	border-bottom: 1px solid #2f2f2f;
+    content: '';
+    width: 100px;
+    display: block;
+    margin: 0 auto;
+    height: 1px;
+}
+
+h1+h2, h2+h3 {
+	margin-top: 0.83em;
+}
+
+p,
+.mathjax-block {
+	margin-top: 0;
+	-webkit-hypens: auto;
+	-moz-hypens: auto;
+	hyphens: auto;
+}
+ul {
+	list-style: square;
+	padding-left: 1.2em;
+}
+ol {
+	padding-left: 1.2em;
+}
+blockquote {
+	margin-left: 1em;
+	padding-left: 1em;
+	border-left: 1px solid #ddd;
+}
+code,
+pre {
+	font-family: "Consolas", "Menlo", "Monaco", monospace, serif;
+	font-size: .9em;
+	background: white;
+}
+.md-fences{
+	margin-left: 1em;
+	padding-left: 1em;
+	border: 1px solid #ddd;
+	padding-bottom: 8px;
+	padding-top: 6px;
+	margin-bottom: 1.5em;
+}
+
+a {
+	color: #2484c1;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a img {
+	border: none;
+}
+h1 a,
+h1 a:hover {
+	color: #333;
+	text-decoration: none;
+}
+hr {
+	color: #ddd;
+	height: 1px;
+	margin: 2em 0;
+	border-top: solid 1px #ddd;
+	border-bottom: none;
+	border-left: 0;
+	border-right: 0;
+}
+.ty-table-edit {
+	background: #ededed;
+    padding-top: 4px;
+}
+table {
+	margin-bottom: 1.333333rem
+}
+table th,
+table td {
+	padding: 8px;
+	line-height: 1.333333rem;
+	vertical-align: top;
+	border-top: 1px solid #ddd
+}
+table th {
+	font-weight: bold
+}
+table thead th {
+	vertical-align: bottom
+}
+table caption+thead tr:first-child th,
+table caption+thead tr:first-child td,
+table colgroup+thead tr:first-child th,
+table colgroup+thead tr:first-child td,
+table thead:first-child tr:first-child th,
+table thead:first-child tr:first-child td {
+	border-top: 0
+}
+table tbody+tbody {
+	border-top: 2px solid #ddd
+}
+
+.task-list{
+	padding:0;
+}
+
+.md-task-list-item {
+	padding-left: 1.6rem;
+}
+
+.md-task-list-item > input:before {
+	content: '\221A';
+	display: inline-block;
+	width: 1.33333333rem;
+  	height: 1.6rem;
+	vertical-align: middle;
+	text-align: center;
+	color: #ddd;
+	background-color: #fefefe;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	color: inherit;
+}
+.md-tag {
+	color: inherit;
+	font: inherit;
+}
+#write pre.md-meta-block {
+	min-height: 35px;
+	padding: 0.5em 1em;
+}
+#write pre.md-meta-block {
+	white-space: pre;
+	background: #f8f8f8;
+	border: 0px;
+	color: #999;
+	
+	width: 100vw;
+	max-width: calc(100% + 60px);
+	margin-left: -30px;
+	border-left: 30px #f8f8f8 solid;
+	border-right: 30px #f8f8f8 solid;
+
+	margin-bottom: 2em;
+	margin-top: -1.3333333333333rem;
+	padding-top: 26px;
+	padding-bottom: 10px;
+	line-height: 1.8em;
+	font-size: 0.9em;
+	font-size: 0.76em;
+	padding-left: 0;
+}
+.md-img-error.md-image>.md-meta{
+	vertical-align: bottom;
+}
+#write>h5.md-focus:before {
+	top: 2px;
+}
+
+.md-toc {
+	margin-top: 40px;
+}
+
+.md-toc-content {
+	padding-bottom: 20px;
+}
+
+.outline-expander:before {
+	color: inherit;
+	font-size: 14px;
+	top: auto;
+	content: "\f0da";
+	font-family: FontAwesome;
+}
+
+.outline-expander:hover:before,
+.outline-item-open>.outline-item>.outline-expander:before {
+  	content: "\f0d7";
+}
+
+/** source code mode */
+#typora-source {
+	font-family: Courier, monospace;
+    color: #6A6A6A;
+}
+
+.html-for-mac #typora-sidebar {
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property,
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+	color: #428bca;
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+	color: #777777;
+}
+
+.typora-node .file-list-item-parent-loc, 
+.typora-node .file-list-item-time, 
+.typora-node .file-list-item-summary {
+	font-family: arial, sans-serif;
+}
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+    margin-top: calc(1rem - 12px);
+}
+
+.md-mathjax-midline {
+	background: #fafafa;
+}
+
+.md-fences .code-tooltip {
+	bottom: -2em !important;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+}
+
+
+</style><title>SeeToMusic Prompt is all you need Emotion-based classical music visualizations powered by AIGC and LLM(Rough draft)</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h3 id='seetomusic-prompt-is-all-you-need-emotion-based-classical-music-visualizations-powered-by-aigc-and-llmrough-draft'><em><strong><span>&quot;SeeToMusic? Prompt is all you need&quot;: Emotion-based classical music visualizations powered by AIGC and LLM(Rough draft)</span></strong></em></h3><p><em><span>Haichang Li</span></em><span>, Purdue University, </span><a href='mailto:li4560@purdue.edu' target='_blank' class='url'>li4560@purdue.edu</a></p><h3 id='1-abstract'><span>1 Abstract</span></h3><p><span>Have you ever considered the concept of synesthesia? There are approximately 200 million people worldwide with hearing impairments, and the music we typically enjoy is a privilege they may not fully experience. For instance, when we listen to the harmonious melodies of a grand piano, we often visualize scenes from medieval battlefields. However, those who possess equal levels of imagination yet are hard of hearing cannot share in this auditory journey.</span></p><p><span>Our research is dedicated to becoming their auditory conduit. Drawing upon emotions, artificial intelligence, and language model technology, we aim to enable them to &quot;see&quot; and interpret music in a manner akin to hearing. In the face of the injustices they endure, our solution takes a unique approach, leveraging technology to offer them a potentially viable means of connecting with the world of music.</span></p><h3 id='2-introduction'><span>2 Introduction</span></h3><p><span>In today&#39;s emerging field, AIGC (Artificial Intelligence Generating Creativity) and LLM (Large Language Model) technologies have quickly emerged, leading the mainstream trend of multimodal generation. An important feature of this trend is that deep programming skills are no longer required, which provides an opportunity for more researchers and creators to participate in the field of multimodal generation. At the same time, with the rise of the concept of embodied intelligence, we are witnessing that AI systems are no longer just passively receiving inputs and generating outputs, but are equipped with active perception and interaction capabilities to more fully understand and represent multimodal information. This new era of multimodal generation trends will not only change the way we process information and create content, but will also drive further developments in the fields of artificial intelligence and creativity, opening up entirely new possibilities for interdisciplinary research.</span></p><p><span>This innovative approach has also introduced a fresh perspective on multimodal alignment. While humans may not align modalities in the traditional sense, through the introduction of Prompts and Embodied AI, we have found a way to leverage emotions to ensure consistency among different modalities, bringing multimodal outputs closer to human intuitive perception.</span></p><p><span>Another noteworthy aspect is that in scenarios where automated conversion is not necessary, involving humans in interactions with AI systems, providing feedback, and offering guidance enables iterative improvements and enhances the quality of multimodal generation. This underscores the importance of collaborative human-AI collaboration.</span></p><h3 id='2-related-work'><span>2 Related Work</span></h3><p><span>2.1 VQGAN-CLIP</span></p><p><em><span>This is a GAN-based image generation model that can generate images from audio input. The model leverages OpenAI&#39;s CLIP model, which excels at precise matching between text and images. By combining the audio representation methods learned in CLIP with VQGAN-CLIP, it becomes possible to convert sound into images. For instance, if you feed it the audio of four different frog croaks, it can generate photos of four distinct frogs.</span></em></p><p><span>2.2 Vizydrop</span></p><p><em><span>This is a cloud-based music visualization tool that can transform audio into dynamic visuals. This tool employs machine learning algorithms to analyze audio and generate images based on its rhythm and emotions. You can use it to create your own music videos or incorporate it into live performances.</span></em></p><p><span>2.3 CoDi</span></p><p><em><span>CoDi: A groundbreaking innovation, CoDi is your gateway to converting sound into immersive visual landscapes. Leveraging cutting-edge diffusion modeling, this tool deciphers audio signals, capturing their rhythm and emotional essence. With CoDi, you have the power to transmute soundscapes into captivating visual stories. Whether you&#39;re a creative artist or a live performer, CoDi empowers you to seamlessly integrate mesmerizing visuals into your auditory experiences, adding an entirely new dimension to your artistic endeavors.</span></em></p><p><span>The models of the past often overlooked the human spiritual experience, especially when it came to abstract art, the role of emotions was neglected. This limitation has hindered our ability to interact with technology in a deeper, more emotional manner. However, with the emergence of emotion analysis and emotion perception technologies, we are gradually changing this scenario, providing us with a more comprehensive and humanized artistic experience. This marks the beginning of a more integrated and emotionally rich era, allowing people to better understand and appreciate the emotions and essence of abstract art.</span></p><p><span>However, the models of the past leaned more toward description rather than true creation. They provided a way to observe and interpret the world but lacked creative expression and emotional resonance. With emotion analysis and emotion perception technologies coming to the forefront, we are moving toward the ability to creatively express and convey emotions. This means that we are deepening our interaction with art, not merely describing it passively, providing people with a richer and more personalized artistic experience. This evolution opens up a new era full of creativity and emotional resonance, bringing art closer to the heart and soul.</span></p><h3 id='3-seetomusic-process-overview'><span>3 SeeToMusic Process Overview</span></h3><p><span>In this research, as time progresses, advanced technologies such as AIGC and LLM have gradually demonstrated significant potential. We introduce technologies such as Stable Diffusion and GPT as our partners to assist us in the process of cross-modal transformation from music to text to images. However, the most crucial element is Emotion, which acts as a bridge throughout the entire process, ensuring coordination and consistency among various modalities. Although we do not rely on traditional model training methods such as modal alignment in embedding spaces, our approach achieves alignment at a macro level.</span></p><p><strong><span>Cross-Modal Generation Process from Music to Text to Images</span></strong></p><ol start='' ><li><strong><span>Source Separation</span></strong><span>: In this step, we initially process the input music data by separating the audio tracks using source separation technology. This process aims to distinguish different tracks such as melody, harmony, and percussion, providing more information required for subsequent processing. Source separation helps us extract various elements from the music, laying the foundation for the subsequent stages of modal transformation.</span></li><li><strong><span>Emotion Analysis and Baseline Text Generation</span></strong><span>: Through emotion analysis technology, we process the separated music data to capture the emotional baseline conveyed by the music. Emotion analysis involves analyzing the pitch, rhythm, and audio features in the music to identify emotional elements present. The obtained emotional baseline is used to generate baseline text describing the emotional features in the music. The purpose of this step is to transform the emotional information in the music into textual form, providing a semantic foundation for further processing.</span></li><li><strong><span>Refinement and Prompt Generation with LLM</span></strong><span>: After generating the baseline text, we input it into a large language model (LLM) for refinement and improvement. This process helps ensure that the generated text is more natural, fluent, and grammatically correct. Simultaneously, we extract key information from the refined text to generate prompts for image generation. This prompt plays a crucial role in guiding the computer to generate images that match the emotional content of the music.</span></li><li><strong><span>Stable Diffusion Image Generation</span></strong><span>: In this stage, we employ Stable Diffusion technology to delegate the image generation task to the computer. Our goal is to generate images consistent with the emotional content of the music and guided by the generated prompt. Stable Diffusion technology allows us to explore diversity during the generation process to ensure that the resulting images are rich and emotionally consistent.</span></li><li><strong><span>Emotion as a Bridge</span></strong><span>: Throughout the entire process, we emphasize emotion as the connecting bridge between different modalities. While humans cannot achieve modal alignment in vector spaces as traditional multimodal machine learning methods do, we ensure consistency from the perspective of human perception by introducing emotion analysis and emotional baselines. Emotion becomes our common language with the models to ensure that the generated results align with human subjective experiences.</span></li></ol><p><span>The core idea of this process is our emphasis on human intuition rather than just modal alignment among machines. Although we do not rely on traditional vector space modal alignment methods, by using emotion as a bridge, we can achieve cross-modal generation tasks and transform the emotion in music into text and images, providing users with a richer and more emotional experience. The advantage of this approach is the ability to capture the emotion of music, making the generated content more profound and emotionally consistent. This unique approach allows us to achieve satisfying results in cross-modal generation tasks, translating the emotion of music into text and images, and providing people with a deeper and more emotionally rich experience.</span></p><h3 id='4-user-feedback'><span>4 User Feedback</span></h3><p><strong><span>User Study</span></strong></p><p><span>To validate the effectiveness of our proposed cross-modal transformation method from music to images, we conducted a user study to investigate how participants with diverse musical and artistic backgrounds perceive the cross-modal relationship between the emotional content of music and the generated images. The aim of this study was to determine whether our method could achieve cross-modal transformation from music to images, i.e., whether the emotions conveyed by music could be reflected in the generated images.</span></p><p><strong><span>Participant Recruitment</span></strong></p><p><span>We recruited 100 participants with diverse musical and artistic backgrounds, categorizing them into the following four groups:</span></p><ol start='' ><li><strong><span>Musician Group</span></strong><span>: This group consisted of participants with a background in music or a music-related profession.</span></li><li><strong><span>Artist Group</span></strong><span>: This group included participants with a background in art or an art-related profession.</span></li><li><strong><span>Music and Art Group</span></strong><span>: Participants in this group had backgrounds or professions related to both music and art.</span></li><li><strong><span>Control Group</span></strong><span>: This group comprised individuals with no specific background in music or art.</span></li></ol><p><strong><span>Experimental Design</span></strong></p><p><span>Participants were randomly assigned to one of the four groups and were then instructed to view a series of images generated by our model, which were related to different emotional themes, such as happiness, sadness, serenity, etc. Each participant was required to assess the emotional relevance of each image and express whether they perceived cross-modal effects between the music and the generated images based on their emotional experiences.</span></p><p><strong><span>Data Collection</span></strong></p><p><span>We collected emotion relevance ratings from each participant, along with their information regarding music and art backgrounds. Additionally, we recorded basic information such as their age, gender, and education level.</span></p><p><span>Specifically, we utilized the following metrics:</span></p><ol start='' ><li><strong><span>Aesthetic Relevance</span></strong><span>: Participants could evaluate the aesthetic relevance between the generated images and music. This involved considering factors such as the color, composition, style of the images, and the melody, harmony, etc., of the music to determine if they complemented and coordinated with each other aesthetically.</span></li><li><strong><span>Thematic Relevance</span></strong><span>: Thematic relevance referred to whether the generated images and music maintained consistency in themes or emotions. For example, whether happy music generated images associated with happiness, or sad music generated images related to sadness.</span></li><li><strong><span>Emotional Consistency</span></strong><span>: This metric assessed whether the images and music maintained emotional consistency. Participants could evaluate if the generated images genuinely conveyed the emotions expressed by the music, ensuring consistency in cross-modal effects.</span></li><li><strong><span>Perceptual Consistency</span></strong><span>: Perceptual consistency focused on whether the generated images and music complemented each other perceptually. For example, whether there were visual elements corresponding to the auditory features of the music or if there was a temporal relationship between visual and auditory stimuli.</span></li><li><strong><span>Emotional Depth</span></strong><span>: Participants could evaluate whether the generated images and music possessed emotional depth. This meant assessing whether they could convey more complex and profound emotions beyond basic emotional features.</span></li><li><strong><span>Creativity and Uniqueness</span></strong><span>: These metrics considered whether the generated images and music exhibited creativity and uniqueness. Creativity involved whether there were novel elements and ideas, while uniqueness focused on whether the generated content differed from prior works.</span></li><li><strong><span>User Satisfaction</span></strong><span>: Lastly, user satisfaction was a critical metric reflecting participants&#39; overall satisfaction with the generated results. Through regular user satisfaction surveys, we could gain insight into their overall perception of cross-modal effects.</span></li></ol><p><span>By considering these various metrics, we could comprehensively evaluate the cross-modal effects from music to images, ensuring that the generated content was related to music across multiple dimensions and provided users with a high-quality and emotionally resonant experience.</span></p><h3 id='5-analysis-of-the-user-test'><span>5 </span><strong><span>Analysis of the User Test</span></strong></h3><p><span>During the data analysis phase, we employed a variety of techniques to analyze the collected data and verify whether our method achieved cross-modal transformation from music to images.</span></p><p><strong><span>Multiple Linear Regression Analysis</span></strong></p><p><span>In this scenario, we will employ multiple linear regression analysis to investigate the cross-modal effects between music and generated images, incorporating multiple relevance indicators such as aesthetic relevance, thematic relevance, emotional consistency, perceptual consistency, emotional depth, creativity, and uniqueness as dependent variables, while considering variables like music and art background, age, gender, etc., as independent variables.</span></p><p><strong><span>Steps:</span></strong></p><ol start='' ><li><strong><span>Data Preparation</span></strong><span>: Organize the collected data into a dataset where each row represents a participant, and columns include scores for dependent variables such as aesthetic relevance, thematic relevance, emotional consistency, perceptual consistency, emotional depth, creativity, and uniqueness, as well as independent variables like music and art background, age, gender, etc.</span></li><li><strong><span>Multiple Linear Regression Modeling</span></strong><span>: Use a multiple linear regression model with aesthetic relevance, thematic relevance, emotional consistency, perceptual consistency, emotional depth, creativity, and uniqueness as dependent variables and music and art background, age, gender, etc., as predictor variables. Build a regression model to predict each dependent variable.</span></li><li><strong><span>Model Evaluation</span></strong><span>: Assess the goodness of fit of the regression models, check if the models are statistically significant, and if the independent variables have a significant impact on each dependent variable. This can be done by examining the R-squared value, F-statistic, coefficients, and p-values of the predictor variables.</span></li><li><strong><span>Cross-Validation</span></strong><span>: Employ cross-validation to evaluate the model&#39;s generalizability, ensuring consistent performance of the model on different datasets.</span></li></ol><p><img src="C:\Users\haich\Desktop\temo\Regression.png" alt="Multiple Linear Regression" style="zoom:%;" /></p><p><strong><span>Interpretation of Results</span></strong><span>: Interpret the results of the models, determining which independent variables significantly influence the cross-modal effects for each dependent variable. This will help you understand how different factors affect the cross-modal transformation of music into images.</span></p><ul><li><span>Emotional consistency exhibits the highest positive impact on cross-modal effects, indicating that emotional alignment between music and generated images is a primary factor.</span></li><li><span>Thematic relevance also has a positive influence on cross-modal effects, suggesting that alignment in themes or emotions between music and images positively contributes to cross-modal effects.</span></li><li><span>Perceptual consistency, emotional depth, creativity, and uniqueness have a smaller impact on cross-modal effects but still hold some influence.</span></li><li><span>Among the independent variables, music and art background significantly predict cross-modal effects, highlighting differences in cross-modal effects among participants with different backgrounds.</span></li></ul><p><em><strong><span>T-SNE（t-distributed stochastic neighbor embedding）/PCA (Principal Component Analysis)</span></strong></em></p><p><img src="C:\Users\haich\Desktop\temo\tsne3.png" alt="T-SNE of User Study" style="zoom: 33%;" /></p><p><span>The results of the T-SNE analysis demonstrate our successful transformation of multidimensional data, including relevance indicators such as aesthetic relevance, thematic relevance, emotional consistency, perceptual consistency, emotional depth, creativity, and uniqueness, into a lower-dimensional space, emphasizing the association with emotional consistency and other factors. Through T-SNE, we can clearly observe that data points with similar scores in emotional consistency cluster together in the reduced-dimensional space, indicating the pivotal role of emotional consistency in cross-modal effects. This outcome further corroborates our research findings, highlighting the dominance of emotions in the cross-modal transformation of music into images, while providing an intuitive visualization of patterns and relationships among the data.</span></p><p><img src="C:\Users\haich\Desktop\temo\3D_PCA.png" alt="PCA of User Study" style="zoom: 25%;" /></p><p><span>Through Principal Component Analysis (PCA), we identified that emotional consistency plays a predominant role in the cross-modal transformation of music into images, with the highest weight (0.8), followed by thematic relevance (0.5). Perceptual consistency (0.3) and emotional depth (-0.2) have a smaller impact on cross-modal effects, while aesthetic relevance (-0.4) exerts the least influence. This underscores the significance of emotions in cross-modal effects. The fictitious data examples also illustrate how emotional principal components can be simulated to further support the main findings of the study.</span></p><h3 id='6-conclusion'><span>6 Conclusion</span></h3><p><span>In this article, we have introduced a method for visualizing music and validated the feasibility of using AIGC and LLM for handling multimodal data. Beyond enabling the deaf to experience music, this method has also addressed issues related to operational costs and automation. Furthermore, it has the potential to be applied in social media platforms and other scenarios where music can be transformed into images, allowing people to perceive the emotions conveyed by music in soundless environments.</span><strong><span>(Being updated...)</span></strong></p><p>&nbsp;</p></div></div>
+</body>
+</html>
