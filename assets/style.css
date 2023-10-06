@@ -137,25 +137,32 @@ main {
     div.info{padding-right:calc(40% - 22em)}
 }
 
-@media screen and (max-width: 30em) {
+@media screen and (max-width: 44em) {
     .navbar {
         min-width: 24em;
     }
     main {
         min-width: 24em;
     }
-    div.img, div.info{
+    div.img, div.info, .custom-image, .custom-content{
         float: none;
         margin: 0 auto;
         text-align: center;
     }
-        .custom-image {
-        width: auto; /* Allow image to take its natural width */
-        margin: 0 auto; /* Center the image */
+    div.img {
+        display: inline; 
+        text-align: center; 
+        margin: 0 auto; 
+        margin-right: 0 auto;
+        vertical-align: middle; 
+        max-width: 60em; 
+        float: none;
     }
-    
-    .custom-content {
-        margin-left: 0; /* Reset the margin to align with the image */
-        text-align: center; /* Center the content */
+    .custom-image {
+        width: auto;
+        flex-shrink: 1;
+    }
+    .custom-experience-container {
+        flex-wrap:wrap;
     }
 }
