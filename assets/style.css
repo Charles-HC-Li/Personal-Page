@@ -9,9 +9,9 @@ body {
     overflow-y: auto; 
 }
 
-a[href] {
-  text-decoration: none; /* Remove underline */
-  color: #551A8B; /* Set color to #551A8B */
+.test a{
+	text-decoration: none;
+     color: #551A8B;
 }
 
 img.img_responsive{width:23em;height:auto;display:block}
