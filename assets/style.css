@@ -1,3 +1,8 @@
+a{
+	text-decoration: none;
+	color: #551A8B;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -7,11 +12,6 @@ body {
 .news-container {
     height: 11em; 
     overflow-y: auto; 
-}
-
-.test a{
-	text-decoration: none;
-     color: #551A8B;
 }
 
 img.img_responsive{width:23em;height:auto;display:block}
